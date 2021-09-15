@@ -1,8 +1,10 @@
 FROM apache/superset
 # Switching to root to install the required packages
 USER root
-# Install the Postgres driver to connect to the metadata database
-RUN pip install psycopg2-binary
+# Install the relevant db drivers to enable connecting to databases
+RUN pip install psycopg2-binary sqlalchemy-redshift snowflake-sqlalchemy
+# Now install other interesting packages
+RUN pip install redis
 # Switching back to using the `superset` user
 USER superset
 # Add configuration
