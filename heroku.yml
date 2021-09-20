@@ -9,3 +9,4 @@ build:
     web: Dockerfile
 run:
   web: superset run -p $PORT --with-threads --reload --debugger --host=0.0.0.0
+  celery: celery --app=superset.tasks.celery_app:app worker --pool=prefork -O fair -c 4
