@@ -66,12 +66,12 @@ class CeleryConfig(object):
             'ignore_result': True,
         },
     }
-    CELERYBEAT_SCHEDULE = {
-        'email_reports.schedule_hourly': {
-            'task': 'email_reports.schedule_hourly',
-            'schedule': crontab(minute=1, hour='*'),
-        },
-    }
+    # CELERYBEAT_SCHEDULE = {
+    #     'email_reports.schedule_hourly': {
+    #         'task': 'email_reports.schedule_hourly',
+    #         'schedule': crontab(minute=1, hour='*'),
+    #     },
+    # }
 
 CELERY_CONFIG = CeleryConfig
 from cachelib.redis import RedisCache
